@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Room from './Components/Room';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={logo} className="App-logo-1" alt="logo" />
+        <div className='App-links'>
+          <a href=''> Room List </a>
+          <a href=''> Messages </a>
+          <a href=''> Leave </a>
+          <a href=''> Profile </a>
+          <a href=''> Log out </a>
+        </div>
+        <img src={logo} className="App-logo-2" alt="logo" />
       </header>
+      <body className="App-body">
+        <Room  className='App-room'/>
+      </body>
     </div>
   );
 }
