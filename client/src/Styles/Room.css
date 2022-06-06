@@ -12,14 +12,13 @@
 }
 
 .Room_tables {
-	padding: 80px 0;
-	text-align: center;
-	
+	padding: 40px 10px;
+	text-align: center;	
 }
 
 .Row {
 	display: inline-flex;
-	padding: 40px 10px;
+	padding: 10px 10px;
 }
 .Column {
 	display: inline-flex;
