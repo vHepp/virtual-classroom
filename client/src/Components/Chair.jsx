@@ -1,23 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Chair.css";
 
-const Chair = ({ id, foo, num }) => {
-  const [selected, setselected] = useState(true);
+const Chair = ({ id, handleChoice, choice }) => {
+  //const [selected, setselected] = useState(false);
 
-  const swapSelected = () => {
-    if (selected === false) {
-      setselected(true);
-      colorElement("aquamarine");
-    } else {
-      setselected(false);
+  /*  const swapSelected = () => {
+	if (selected === false) {
+	  setselected(true);
+	  colorElement("red");
+	} else {
+	  setselected(false);
+	  colorElement("aquamarine");
+	}
+  }; */
+
+  /* const swapSelected = () => {
+	if (selected === false) {
+	  setselected(true);
+	  colorElement("aquamarine");
+	} else {
+	  setselected(false);
+	  colorElement("red");
+	}
+  }; */
+
+  useEffect(() => {
+    const colorElement = (newColor) => {
+      let el = document.getElementById(id);
+      el.style.backgroundColor = newColor;
+    };
+
+    if (id === choice) {
+      //setselected(true);
       colorElement("red");
+    } else {
+      //setselected(false);
+      colorElement("aquamarine");
     }
-  };
-
-  const colorElement = (newColor) => {
-    let el = document.getElementById(id);
-    el.style.backgroundColor = newColor;
-  };
+  }, [id, choice]);
 
   return (
     <div>
@@ -25,8 +45,7 @@ const Chair = ({ id, foo, num }) => {
         className="chair_button"
         id={id}
         onClick={() => {
-          foo(num);
-          swapSelected();
+          handleChoice(id);
         }}
       >
         {id}

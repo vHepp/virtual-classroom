@@ -8,9 +8,10 @@ const Table = ({ id, max, min }) => {
   const [count, setcount] = useState(4);
   const [chairs, setchairs] = useState([]);
 
-  const handleState = (state) => {
+  const handleChoice = (state) => {
     setchoice(state);
   };
+
   const increase = () => {
     if (count < 4) {
       setcount(count + 1);
@@ -28,11 +29,11 @@ const Table = ({ id, max, min }) => {
     for (let i = 1; i <= count; i++) {
       temp.push(
         <Chair
+          className="chair"
           id={id + "_" + i}
           key={id + "_" + i}
-          num={i}
           choice={choice}
-          foo={handleState}
+          handleChoice={handleChoice}
         />
       );
     }
@@ -41,20 +42,20 @@ const Table = ({ id, max, min }) => {
   }, [count, id, choice]);
 
   /* const swapSelected = () => {
-		if (selected === false) {
-			setselected(true);
-			colorElement('aquamarine');
+			if (selected === false) {
+				setselected(true);
+				colorElement('aquamarine');
+			}
+			else{
+				setselected(false);
+				colorElement('red');
+			}
 		}
-		else{
-			setselected(false);
-			colorElement('red');
-		}
-	}
 
-	const colorElement = (newColor) => {
-		let el = document.getElementById(id);
-		el.style.backgroundColor =  newColor;
-	} */
+		const colorElement = (newColor) => {
+			let el = document.getElementById(id);
+			el.style.backgroundColor =  newColor;
+		} */
 
   return (
     <div>
@@ -65,8 +66,8 @@ const Table = ({ id, max, min }) => {
 
       <div>
         <h3 style={{ fontSize: 15 }}>count: {count}</h3>
-        <button onClick={increase}>+</button>
         <button onClick={decrease}>-</button>
+        <button onClick={increase}>+</button>
       </div>
 
       <div className="chairs">
@@ -75,13 +76,6 @@ const Table = ({ id, max, min }) => {
             return element;
           })}
       </div>
-
-      {/* <div className='chairs'>
-					<Chair id={id +'_1'} num={1} choice={choice} foo={handleState}/>
-					<Chair id={id +'_2'} num={2} choice={choice} foo={handleState}/>
-					<Chair id={id +'_3'} num={3} choice={choice} foo={handleState}/>
-					<Chair id={id +'_4'} num={4} choice={choice} foo={handleState}/>
-		</div> */}
     </div>
   );
 };
